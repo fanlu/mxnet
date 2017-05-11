@@ -4,6 +4,16 @@ use warnings;
 use AI::MXNet::Base;
 use AI::MXNet::Function::Parameters;
 
+=head1 NAME
+
+    AI::MXNet::Profiler - Optional profiler feature.
+=cut
+
+=head1 DESCRIPTION
+
+    Optional profirer.
+=cut
+
 =head2 profiler_set_config
 
     Set up the configure of profiler.
@@ -39,6 +49,17 @@ method profiler_set_state(ProfilerState $state='stop')
 {
     my %state2int = qw/stop 0 run 1/;
     check_call(AI::MXNet::SetProfilerState($state2int{ $state }));
+}
+
+=head2 dump_profile
+
+    Dump profile and stop profiler. Use this to save profile
+    in advance in case your program cannot exit normally
+=cut
+
+method dump_profile()
+{
+    check_call(AI::MXNetCAPI::DumpProfile());
 }
 
 1;

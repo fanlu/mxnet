@@ -48,10 +48,10 @@ copied_model =  mx.model.FeedForward(ctx=mx.gpu(), symbol=new_symbol,
                                      arg_params=old_arg_params, aux_params=old_aux_params,
                                      allow_extra_params=True);
 ```
-For information about copying model parameters from an existing ```old_arg_params```, see this [notebook](https://github.com/dmlc/mxnet/blob/master/example/notebooks/predict-with-pretrained-model.ipynb).
+For information about copying model parameters from an existing ```old_arg_params```, see this [notebook](https://github.com/dmlc/mxnet-notebooks/blob/master/python/how_to/predict.ipynb). More notebooks please refer to [dmlc/mxnet-notebooks](https://github.com/dmlc/mxnet-notebooks).
 
 #### How to Extract the Feature Map of a Certain Layer
-See this [notebook](https://github.com/dmlc/mxnet/blob/master/example/notebooks/predict-with-pretrained-model.ipynb).
+See this [notebook](https://github.com/dmlc/mxnet-notebooks/blob/master/python/how_to/predict.ipynb). More notebooks please refer to [dmlc/mxnet-notebooks](https://github.com/dmlc/mxnet-notebooks).
 
 
 #### What Is the Relationship Between MXNet and CXXNet, Minerva, and Purine2?
@@ -66,4 +66,4 @@ memory efficient than CXXNet and Purine, and more flexible than Minerva.
 
 #### What Is the Relationship Between MXNet and TensorFlow?
 Both MXNet and [TensorFlow](https://www.tensorflow.org/) use computation graph abstraction, which was initially used by Theano, then adopted by other packages, such as CGT, Caffe2, and Purine. Currently, TensorFlow adopts an optimized symbolic API. MXNet supports a [mixed approach](https://mxnet.io/architecture/program_model.html), with a dynamic dependency scheduler to combine symbolic and imperative programming.
-In short, MXNet is lightweight and “mixed,” with flexibility from imperative programming, while using a computation graph to make it very fast and memory efficient.
+In short, MXNet is lightweight and *mixed* with flexibility from imperative programming, while using a computation graph to make it very fast and memory efficient.

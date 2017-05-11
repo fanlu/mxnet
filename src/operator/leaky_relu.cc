@@ -22,8 +22,22 @@ Operator *LeakyReLUProp::CreateOperator(Context ctx) const {
 DMLC_REGISTER_PARAMETER(LeakyReLUParam);
 
 MXNET_REGISTER_OP_PROPERTY(LeakyReLU, LeakyReLUProp)
-.describe("Apply activation function to input.")
-.add_argument("data", "Symbol", "Input data to activation function.")
+.describe(R"code(Applies Leaky rectified linear unit activation element-wise to the input.
+
+Leaky ReLUs attempt to fix the "dying ReLU" problem by allowing a small `slope` 
+when the input is negative and has a slope of one when input is positive.
+
+The following modified ReLU Activation functions are supported:
+
+- *elu*: Exponential Linear Unit. `y = x > 0 ? x : slope * (exp(x)-1)`
+- *leaky*: Leaky ReLU. `y = x > 0 ? x : slope * x`
+- *prelu*: Parametric ReLU. This is same as *leaky* except that `slope` is learnt during training.
+- *rrelu*: Randomized ReLU. same as *leaky* but the `slope` is uniformly and randomly chosen from
+  *[lower_bound, upper_bound)* for training, while fixed to be
+  *(lower_bound+upper_bound)/2* for inference.
+
+)code" ADD_FILELINE)
+.add_argument("data", "NDArray-or-Symbol", "Input data to activation function.")
 .add_arguments(LeakyReLUParam::__FIELDS__());
 
 NNVM_REGISTER_OP(LeakyReLU)
@@ -36,4 +50,3 @@ NNVM_REGISTER_OP(LeakyReLU)
 
 }  // namespace op
 }  // namespace mxnet
-

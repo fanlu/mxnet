@@ -6,13 +6,13 @@
   <parent>
     <groupId>ml.dmlc.mxnet</groupId>
     <artifactId>mxnet-parent_2.11</artifactId>
-    <version>0.1.2-SNAPSHOT</version>
+    <version>0.9.5-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
   <groupId>ml.dmlc.mxnet</groupId>
   <artifactId>mxnet-core_2.11</artifactId>
-  <version>0.1.2-SNAPSHOT</version>
+  <version>0.9.5-SNAPSHOT</version>
   <name>MXNet Scala Package - Core</name>
 
   <profiles>
@@ -60,7 +60,7 @@
           <argLine>
             -Djava.library.path=${project.parent.basedir}/native/${platform}/target \
             -Dlog4j.configuration=file://${project.basedir}/src/test/resources/log4j.properties
-          </argLine> 
+          </argLine>
         </configuration>
       </plugin>
       <plugin>
